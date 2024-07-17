@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        #container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+            gap: 10px;
+            width: 100%;
+            max-width: 600px;
+        }
+        .number-card {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Number Generator</h1>
+    <div id="container"></div>
+
+    <script>
+        const container = document.getElementById('container');
+
+        // Function to check if a number is prime
+        const isPrime = (num) => {
+            if (num <= 1) return false;
+            for (let i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) return false;
+            }
+            return true;
+        };
+
+        // Generate numbers from 1 to 100
+        for (let i = 1; i <= 100; i++) {
+            const numberCard = document.createElement('div');
+            numberCard.className = 'number-card';
+            numberCard.textContent = i;
+
+            // Set background color based on number type
+            if (isPrime(i)) {
+                numberCard.style.backgroundColor = 'red'; // Prime
+            } else if (i % 2 === 0) {
+                numberCard.style.backgroundColor = 'green'; // Even
+            } else {
+                numberCard.style.backgroundColor = 'yellow'; // Odd
+            }
+
+            container.appendChild(numberCard); // Append to container
+        }
+    </script>
+</body>
+</html>

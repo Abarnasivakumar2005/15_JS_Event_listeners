@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key Code Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+        h1 {
+            color: #333;
+        }
+        #key-code {
+            font-size: 24px;
+            margin: 20px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: white;
+            text-align: center;
+            width: 250px;
+        }
+        #instructions {
+            color: #555;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Key Code Generator</h1>
+    <div id="instructions">Press any key!</div>
+    <div id="key-code">Key: <span id="key"></span> | Code: <span id="code"></span></div>
+
+    <script>
+        const keyDisplay = document.getElementById('key');
+        const codeDisplay = document.getElementById('code');
+
+        // Event listener for keydown event
+        document.addEventListener('keydown', (event) => {
+            // Display the key and its code
+            keyDisplay.textContent = event.key;
+            codeDisplay.textContent = event.code;
+        });
+    </script>
+</body>
+</html>
